@@ -3,6 +3,7 @@ import '../../../core/layout/centered_body.dart';
 import '../../../core/widgets/app_list_item.dart';
 import '../../../core/widgets/app_section_card.dart';
 import '../../../core/widgets/brasa_scaffold.dart';
+import '../../../core/widgets/avatar.dart';
 import '../../../services/auth_service.dart';
 import '../../../models/app_user.dart';
 import 'change_username_screen.dart';
@@ -48,8 +49,9 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   const SizedBox(height: 30),
 
-                  CachedAvatar(
-                    imageUrl: "${user.photoUrl}?v=${user.photoVersion}",
+                  Avatar(
+                    photoUrl: user.photoUrl,
+                    photoVersion: user.photoVersion,
                     radius: 45,
                   ),
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../services/auth_service.dart';
+import '../../../core/widgets/avatar.dart';
 
 class ContactsScreen extends StatelessWidget {
   const ContactsScreen({super.key});
@@ -36,13 +37,14 @@ class ContactsScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final data = users[index].data() as Map<String, dynamic>;
             final username = (data['username'] ?? '') as String;
-            final photoUrl = data['photoUrl'];
+            final photoUrl = data['photoUrl'] as String?;
+            final photoVersion = (data['photoVersion'] as int?) ?? 0;
 
             return ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Colors.grey.shade300,
-                backgroundImage: photoUrl != null ? NetworkImage(photoUrl) : null,
-                child: photoUrl == null ? const Icon(Icons.person) : null,
+              leading: Avatar(
+                photoUrl: photoUrl,
+                photoVersion: photoVersion,
+                radius: 20,
               ),
               title: Text(
                 username,

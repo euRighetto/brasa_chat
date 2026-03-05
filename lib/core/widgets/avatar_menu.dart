@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../services/auth_service.dart';
 import '../../models/app_user.dart';
+import 'avatar.dart';
 
 class AvatarMenu extends StatefulWidget {
   const AvatarMenu({super.key});
@@ -137,15 +138,10 @@ class _AvatarMenuState extends State<AvatarMenu> {
         return GestureDetector(
           key: _avatarKey,
           onTap: toggleMenu,
-          child: CircleAvatar(
+          child: Avatar(
+            photoUrl: user.photoUrl,
+            photoVersion: user.photoVersion,
             radius: 28,
-            backgroundColor: Colors.white,
-            backgroundImage: user.photoUrl != null
-                ? NetworkImage(user.photoUrl!)
-                : null,
-            child: user.photoUrl == null
-                ? const Icon(Icons.person)
-                : null,
           ),
         );
       },

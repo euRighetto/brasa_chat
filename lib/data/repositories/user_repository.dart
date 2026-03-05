@@ -39,6 +39,7 @@ class UserRepository {
         'username': username,
         'email': email,
         'photoUrl': null,
+        'photoVersion': 0,
         'bio': null,
         'createdAt': FieldValue.serverTimestamp(),
       });

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/widgets/brasa_scaffold.dart';
+import '../../../core/widgets/avatar.dart';
 import '../../../services/auth_service.dart';
 import '../../../models/app_user.dart';
 import '../../profile/screens/profile_screen.dart';
@@ -109,15 +110,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Column(
                   children: [
-                    CircleAvatar(
+                    Avatar(
+                      photoUrl: user.photoUrl,
+                      photoVersion: user.photoVersion,
                       radius: 45,
-                      backgroundColor: Colors.white,
-                      backgroundImage: user.photoUrl != null
-                          ? NetworkImage(user.photoUrl!)
-                          : null,
-                      child: user.photoUrl == null
-                          ? const Icon(Icons.person, size: 40)
-                          : null,
                     ),
                     const SizedBox(height: 15),
                     Text(

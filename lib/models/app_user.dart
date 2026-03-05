@@ -12,6 +12,7 @@ class AppUser {
     required this.username,
     this.photoUrl,
     this.bio,
+    this.photoVersion = 0,
   });
 
   factory AppUser.fromFirestore(
@@ -34,6 +35,7 @@ class AppUser {
       'username': username,
       'photoUrl': photoUrl,
       'bio': bio,
+      'photoVersion': photoVersion,
     };
   }
 }
